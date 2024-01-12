@@ -1,4 +1,4 @@
-[](https://i.imgur.com/xXy4lZl.jpg)
+![image](https://i.imgur.com/xXy4lZl.jpg)
 
 # Smartlead bulk uploader for Python
 
