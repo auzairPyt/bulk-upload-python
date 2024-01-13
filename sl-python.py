@@ -12,7 +12,7 @@ def fetch_email_accounts(api_key, max_accounts=9999):
     base_url = "https://server.smartlead.ai/api/v1/email-accounts/"
     accounts = []
     offset = 0
-    limit = 9999
+    limit = 100  # Fetch 100 accounts at a time
 
     while True:
         api_url = f"{base_url}?api_key={api_key}&offset={offset}&limit={limit}"
@@ -20,18 +20,23 @@ def fetch_email_accounts(api_key, max_accounts=9999):
             response = requests.get(api_url)
             if response.status_code == 200:
                 data = response.json()
+                if offset == 0:  # Display friendly message for the first batch
+                    sample_email = data[0]['from_email'] if data else 'No data'
+                    print(f"{Fore.GREEN}Successfully connected to API. Sample account fetched: {sample_email}{Style.RESET_ALL}")
+
                 accounts.extend(data)
                 if len(data) < limit or len(accounts) >= max_accounts:
                     break
-                offset += limit
+                offset += limit  # Increase offset to fetch the next set of accounts
             else:
-                print(f"Error: Received status code {response.status_code}")
+                print(f"{Fore.RED}Error: Received status code {response.status_code}{Style.RESET_ALL}")
+                print(f"{Fore.YELLOW}Response Content: {response.text}{Style.RESET_ALL}")
                 break
         except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
+            print(f"{Fore.RED}An error occurred: {e}{Style.RESET_ALL}")
             break
 
-    return [account['email'] for account in accounts]
+    return [account['from_email'] for account in accounts]
 
 init()
 
