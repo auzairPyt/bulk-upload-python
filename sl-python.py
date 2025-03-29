@@ -41,7 +41,7 @@ def fetch_email_accounts(api_key, max_accounts=9999):
 init()
 
 api_key = os.getenv("SMARTLEAD_API_KEY")
-csv_path =  os.getenv("CSV_PATH")
+csv_path = os.getenv("CSV_PATH", "").strip()
 custom_login_url = os.getenv("LOGIN_URL")
 
 existing_emails = fetch_email_accounts(api_key)
@@ -58,7 +58,7 @@ auto_confirm = os.getenv("AUTO_CONFIRM", "n").lower()
 if auto_confirm != "y":
     print("AUTO_CONFIRM is not 'y', exiting.")
     exit()
-    
+
 max_retries = 99
 processed_count = 0
 
