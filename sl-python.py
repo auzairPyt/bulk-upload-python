@@ -130,7 +130,12 @@ def process_emails(remaining_emails, custom_login_url, log_file, max_retries=3):
     return processed
 
 
-for filename in sorted(os.listdir(csv_folder)):
+import re
+
+def natural_sort_key(s):
+    return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\\d+)', s)]
+
+for filename in sorted(os.listdir(csv_folder), key=natural_sort_key):
     if not filename.lower().endswith('.csv'):
         continue
 
