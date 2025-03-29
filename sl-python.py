@@ -7,11 +7,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from colorama import Fore, Style, init
-
+from dotenv import load_dotenv
 import tempfile
 import os
 import random
 
+load_dotenv()
 init()
 
 api_key = os.getenv("SMARTLEAD_API_KEY")
@@ -131,7 +132,7 @@ def process_emails(remaining_emails, custom_login_url, log_file, max_retries=3):
     return processed
 
 
-for filename in os.listdir(csv_folder):
+for filename in sorted(os.listdir(csv_folder)):
     if not filename.lower().endswith('.csv'):
         continue
 
@@ -145,7 +146,7 @@ for filename in os.listdir(csv_folder):
         print(f"{Fore.GREEN}CSV loaded. {len(csv_emails)} emails found.{Style.RESET_ALL}")
         log_file.write(f"CSV loaded. {len(csv_emails)} emails found.\n")
 
-        max_cycles = 100
+        max_cycles = 5
         cycle = 0
 
         while cycle < max_cycles:
