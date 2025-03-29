@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from colorama import Fore, Style, init
-
+import os
 def fetch_email_accounts(api_key, max_accounts=9999):
     base_url = "https://server.smartlead.ai/api/v1/email-accounts/"
     accounts = []
@@ -40,9 +40,9 @@ def fetch_email_accounts(api_key, max_accounts=9999):
 
 init()
 
-api_key = input("Please enter your API key: ")
-csv_path = input("Please enter the path to your CSV file: ").strip('\"')
-custom_login_url = input("Please enter the custom Microsoft login page URL: ")
+api_key = os.getenv("SMARTLEAD_API_KEY")
+csv_path =  os.getenv("CSV_PATH")
+custom_login_url = os.getenv("LOGIN_URL")
 
 existing_emails = fetch_email_accounts(api_key)
 
