@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from colorama import Fore, Style, init
+import tempfile
 import os
 def fetch_email_accounts(api_key, max_accounts=9999):
     base_url = "https://server.smartlead.ai/api/v1/email-accounts/"
@@ -72,6 +73,12 @@ for record in emails_passwords:
     while attempts < max_retries:
         try:
             chrome_options = webdriver.ChromeOptions()
+            tmp_dir = tempfile.mkdtemp()
+            chrome_options.add_argument("--headless")
+            chrome_options.add_argument("--no-sandbox")
+            chrome_options.add_argument("--disable-dev-shm-usage")
+            chrome_options.add_argument("--disable-gpu")
+            chrome_options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")
             chrome_options.add_argument("--headless")
             driver = webdriver.Chrome(options=chrome_options)
 
