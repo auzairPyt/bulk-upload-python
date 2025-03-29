@@ -7,12 +7,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from colorama import Fore, Style, init
-from dotenv import load_dotenv
+
 import tempfile
 import os
 import random
 
-load_dotenv()
 init()
 
 api_key = os.getenv("SMARTLEAD_API_KEY")
