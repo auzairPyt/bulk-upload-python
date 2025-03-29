@@ -54,10 +54,6 @@ with open(csv_path, newline='', mode='r') as file:
 
 print(f"{Fore.GREEN}Number of email addresses in the CSV: {len(emails_passwords)}{Style.RESET_ALL}")
 
-auto_confirm = os.getenv("AUTO_CONFIRM", "n").lower()
-if auto_confirm != "y":
-    print("AUTO_CONFIRM is not 'y', exiting.")
-    exit()
 
 max_retries = 99
 processed_count = 0
