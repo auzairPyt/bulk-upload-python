@@ -1,0 +1,64 @@
+text = """
+Processing file: 02dealsparkconnect.com - dealsparkconnect.com.csv
+Logging in: theresa@dealsparkconnect.com
+Login success: theresa@dealsparkconnect.com
+Logging in: smith@dealsparkconnect.com
+Login success: smith@dealsparkconnect.com
+Logging in: theresasmith@dealsparkconnect.com
+Login success: theresasmith@dealsparkconnect.com
+Logging in: theresa.smith@dealsparkconnect.com
+Login success: theresa.smith@dealsparkconnect.com
+Logging in: tsmith@dealsparkconnect.com
+Login success: tsmith@dealsparkconnect.com
+Logging in: t.smith@dealsparkconnect.com
+Login success: t.smith@dealsparkconnect.com
+Logging in: theresas@dealsparkconnect.com
+Login success: theresas@dealsparkconnect.com
+Logging in: theresa.s@dealsparkconnect.com
+Login success: theresa.s@dealsparkconnect.com
+Logging in: ts@dealsparkconnect.com
+Login success: ts@dealsparkconnect.com
+Logging in: t.s@dealsparkconnect.com
+Login success: t.s@dealsparkconnect.com
+Logging in: smiththeresa@dealsparkconnect.com
+Login success: smiththeresa@dealsparkconnect.com
+Logging in: smith.theresa@dealsparkconnect.com
+Login success: smith.theresa@dealsparkconnect.com
+Logging in: smitht@dealsparkconnect.com
+Login success: smitht@dealsparkconnect.com
+Logging in: smith.t@dealsparkconnect.com
+Login success: smith.t@dealsparkconnect.com
+Logging in: stheresa@dealsparkconnect.com
+Login success: stheresa@dealsparkconnect.com
+Logging in: s.theresa@dealsparkconnect.com
+Login success: s.theresa@dealsparkconnect.com
+Logging in: st@dealsparkconnect.com
+Login success: st@dealsparkconnect.com
+Logging in: s.t@dealsparkconnect.com
+Login success: s.t@dealsparkconnect.com
+Logging in: theresa-smith@dealsparkconnect.com
+Login success: theresa-smith@dealsparkconnect.com
+Logging in: andrea@dealsparkconnect.com
+Login success: andrea@dealsparkconnect.com
+Logging in: williams@dealsparkconnect.com
+Login success: williams@dealsparkconnect.com
+Logging in: andreawilliams@dealsparkconnect.com
+Login success: andreawilliams@dealsparkconnect.com
+Logging in: andrea.williams@dealsparkconnect.com
+Login success: andrea.williams@dealsparkconnect.com
+Logging in: awilliams@dealsparkconnect.com
+Login success: awilliams@dealsparkconnect.com
+Logging in: a.williams@dealsparkconnect.com
+Login success: a.williams@dealsparkconnect.com
+Logging in: andreaw@dealsparkconnect.com
+Login success: andreaw@dealsparkconnect.com
+Logging in: andrea.w@dealsparkconnect.com
+Login success: andrea.w@dealsparkconnect.com
+Logging in: aw@dealsparkconnect.com
+Login success: aw@dealsparkconnect.com
+Logging in: a.w@dealsparkconnect.com
+"""
+
+# Count occurrences
+count = text.count("Logging in:")
+print(f"Number of 'Logging in:' entries: {count}")
