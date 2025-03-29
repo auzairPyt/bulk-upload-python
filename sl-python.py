@@ -113,7 +113,7 @@ def process_emails(remaining_emails, custom_login_url, log_file, max_retries=3):
                 print(f"{Fore.GREEN}Login success: {email}{Style.RESET_ALL}")
                 log_file.write(f"Login success: {email}\n")
                 processed += 1
-                time.sleep(random.uniform(3, 6))  # Human-like delay
+                time.sleep(random.uniform(5, 10))  # Human-like delay
                 break
 
             except Exception as e:
