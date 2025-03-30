@@ -149,7 +149,7 @@ for filename in sorted(os.listdir(csv_folder), key=natural_sort_key):
         print(f"{Fore.GREEN}CSV loaded. {len(csv_emails)} emails found.{Style.RESET_ALL}")
         log_file.write(f"CSV loaded. {len(csv_emails)} emails found.\n")
 
-        max_cycles = 5
+        max_cycles = 1
         cycle = 0
 
         while cycle < max_cycles:
